@@ -141,5 +141,79 @@ All visualizations are saved in the `plots/` folder.
 
 ---
 
+## More On Outliers
 
+# Outlier Detection and Cleaning with Python  
 
+This project demonstrates how **outliers** can distort descriptive statistics and how to handle them using the **Interquartile Range (IQR) method**.  
+
+---
+
+## Project Overview  
+We simulate a healthcare dataset with patient information (**BMI**, **cholesterol**, **blood pressure**). Then, we:  
+1. Generate normally distributed data for 300 patients.  
+2. Inject extreme **BMI** (80–150) and **cholesterol** (500–1000) outliers.  
+3. Detect outliers using the **IQR rule**.  
+4. Compare **means vs medians** before and after cleaning.  
+5. Visualize distributions with **boxplots**.  
+
+---
+
+## Tech Stack  
+- **Python**  
+- **Pandas** → data manipulation  
+- **NumPy** → random data generation  
+- **Seaborn & Matplotlib** → visualization  
+
+---
+
+## Key Concepts  
+
+### 1. Detecting Outliers with IQR  
+The **Interquartile Range (IQR)** is defined as:  
+
+\[
+IQR = Q3 - Q1
+\]  
+
+- **Lower bound** = Q1 – 1.5 × IQR  
+- **Upper bound** = Q3 + 1.5 × IQR  
+- Any value outside these bounds is flagged as an **outlier**.  
+
+### 2. Why Outliers Matter  
+- **Means** are highly sensitive to extreme values.  
+- **Medians** are more robust and resistant to distortion.  
+
+---
+
+## Results  
+
+### Before vs After Cleaning  
+
+| Metric                  | With Outliers 🚨 | Without Outliers ✅ |
+|--------------------------|------------------|---------------------|
+| **BMI Mean**            | Inflated         | More realistic      |
+| **BMI Median**          | Stable           | Stable              |
+| **Cholesterol Mean**    | Inflated         | More reliable       |
+| **Cholesterol Median**  | Stable           | Stable              |
+
+---
+
+## Visualizations  
+
+Boxplots make it easy to spot outliers:  
+
+- **BMI** outliers appear as extreme points above the whiskers.  
+- **Cholesterol** outliers (500–1000) clearly distort the spread.
+
+## Takeaways
+
+Outliers aren’t always “bad” — sometimes they’re the most interesting cases.
+For general trends, removing/flagging them ensures reliable insights.
+Always compare mean vs median when analyzing skewed data.
+
+## Next Steps
+
+Try winsorization (capping extreme values instead of removing them).
+Use robust statistics for skewed data.
+Analyze outliers separately to see if they represent rare but important events.
